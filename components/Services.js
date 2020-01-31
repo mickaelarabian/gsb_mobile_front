@@ -17,7 +17,6 @@ class Services extends React.Component {
     const title = 'Mes services'
     return (
       <View style={styles.main_container}>
-        <AppBar header={title}/>
         <FlatList
           data={services}
           keyExtractor={(item) => item.id.toString()}

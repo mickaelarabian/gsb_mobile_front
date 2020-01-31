@@ -17,7 +17,7 @@ export function getServicesFromUser (user_id) {
   }
 
   export function getService (service_id) {
-    const url = 'http://192.168.221.131:8000/api/services/1'
+    const url = 'http://10.10.1.67:8000/api/services/1'
     return fetch(url)
       .then((response) => response.json())
       .catch((error) => console.error(error))
