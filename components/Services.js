@@ -30,6 +30,7 @@ class Services extends React.Component {
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
+    padding:15
   },
   textinput: {
     marginTop: 5,

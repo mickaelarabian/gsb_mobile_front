@@ -1,12 +1,14 @@
 // Components/Services.js
 
 import React from 'react'
-import { StyleSheet, View, TextInput, FlatList, Text, ActivityIndicator, ScrollView  } from 'react-native'
+import { StyleSheet, View, TextInput, FlatList, Text, ActivityIndicator, ScrollView } from 'react-native'
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import services from '../helpers/servicesData'
 import ServiceItem from './ServiceItem'
-import AppBar from './AppBar'
+import AppBar from './BottomNavigation'
 import { getService } from '../services/gsbservice'
+import ButtonAdd from './ButtonAdd'
+import Bott from './BottomNavigation'
 
 class Service extends React.Component {
 
@@ -44,15 +46,107 @@ class Service extends React.Component {
       console.log(this.state.service)
       const service = this.state.service.result
       return (
+        <View style={{flex:1}}>
         <ScrollView style={styles.scrollview_container}>
           <Card style={styles.card}>
-            <Title>{service.title} balance</Title>
-              <Paragraph>
-                <Title style={styles.budget}>{service.budget} EUR</Title>
-                <Text style={styles.green}>Disponible</Text>
-              </Paragraph>
+            <Title>{service.title} Budget Service</Title>
+              
+                  <Text style={styles.budget}>{service.budget} EUR</Text>
+                  <Text style={styles.dispo}>Disponible</Text>
           </Card>
+          
+              <View>
+                <Title style={styles.titlea}>Vos activités</Title>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text>
+                    - 8,99 EUR
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text>
+                    - 8,99 EUR
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text>
+                    - 8,99 EUR
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text>
+                    - 8,99 EUR
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text>
+                    - 8,99 EUR
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text>
+                    - 8,99 EUR
+                    </Text>
+                  </View>
+                </View>
+              </View>
         </ScrollView>
+        <View>
+              <ButtonAdd/>
+        </View>
+        </View>
       )
     }
   }
@@ -84,19 +178,57 @@ const styles = StyleSheet.create({
   },
   scrollview_container: {
     flex: 1,
-    padding: 10
+    padding: 20
   },
   card:{
-    padding: 5,
+    padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
+    marginBottom: 30
   },
   title:{
     fontSize: 20
   },
   budget:{
     fontSize: 30
-  }
+  },
+  dispo:{
+    paddingLeft: 10,
+    color: '#727272'
+  },
+  activite:{
+    flexDirection: 'row',
+    flex:1,
+    marginBottom:15
+  },
+  titlea:{
+    marginBottom: 12
+  },
+  actititre:{
+    fontSize: 15,
+    paddingLeft: 5
+  },
+  description:{
+    color: '#727272',
+    fontSize: 12,
+    paddingLeft: 5
+  },
+  acti1:{
+    flex:2,
+    paddingTop: 2,
+    paddingLeft:5,
+    paddingRight:5,
+    borderRadius: 25
+  },
+  acti2:{
+    flex: 13
+  },
+  acti3:{
+    flex:4
+  },
+  list:{
+    flex:1
+  },
 })
 
 export default Service
