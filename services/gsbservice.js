@@ -22,3 +22,10 @@ export function getServicesFromUser (user_id) {
       .then((response) => response.json())
       .catch((error) => console.error(error))
   }
+
+  export function saveDepense (service_id) {
+    const url = 'http://10.10.1.67:8000/api/depenses/create'
+    return fetch(url)
+      .then((response) => response.json())
+      .catch((error) => console.error(error))
+  }

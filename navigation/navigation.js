@@ -17,6 +17,12 @@ const ServicesStackNavigator = createStackNavigator({
 },
 Service:{
   screen:Service
+},
+Saisi:{
+  screen:Saisi,
+  navigationOptions: {
+    title: 'Saisir une dépense'
+},
 }
 })
 

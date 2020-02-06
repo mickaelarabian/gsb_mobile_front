@@ -1,13 +1,12 @@
 // Components/Services.js
 
 import React from 'react'
-import { StyleSheet, View, TextInput, FlatList, Text, ActivityIndicator, ScrollView } from 'react-native'
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { StyleSheet, View, TextInput, FlatList, Button, Text, ActivityIndicator, ScrollView } from 'react-native'
+import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 import services from '../helpers/servicesData'
 import ServiceItem from './ServiceItem'
 import AppBar from './BottomNavigation'
 import { getService } from '../services/gsbservice'
-import ButtonAdd from './ButtonAdd'
 import Bott from './BottomNavigation'
 
 class Service extends React.Component {
@@ -39,6 +38,11 @@ class Service extends React.Component {
         </View>
       )
     }
+  }
+
+  _displaySaisi(service){
+    console.log("go")
+    this.props.navigation.navigate("Saisi", {id:service.id})
   }
 
   _displayService() {
@@ -144,7 +148,7 @@ class Service extends React.Component {
               </View>
         </ScrollView>
         <View>
-              <ButtonAdd/>
+              <Button style={styles.addButton} title="+" onPress={() => this._displaySaisi(service)}/>
         </View>
         </View>
       )
@@ -229,6 +233,9 @@ const styles = StyleSheet.create({
   list:{
     flex:1
   },
+  addButton:{
+
+  }
 })
 
 export default Service
