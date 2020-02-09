@@ -9,7 +9,9 @@ class Login extends React.Component {
     return (
       <View style={styles.main_container}>
         <View>
+          <View style={styles.av} >
         <Avatar.Icon theme={theme} size={100} icon="atlassian" />
+          </View>
           <Text style={styles.title}>Bienvenue sur GSB</Text>
           <Text style={styles.text}>Veuillez vous connecter avec vos informations privés pour accéder à la plateforme de gestion des services et budgets du laboratoire.</Text>
         </View>
@@ -26,7 +28,7 @@ class Login extends React.Component {
 }
 const theme = {
   colors: {
-    primary: '#64b5f6',
+    primary: '#2196f3',
   },
 };
 
@@ -34,7 +36,8 @@ const styles = StyleSheet.create({
   main_container: {
     flex: 1,
     justifyContent: "center",
-    padding:30
+    paddingLeft:30,
+    paddingRight:30
   },
   textinput: {
     marginBottom:15,
@@ -58,6 +61,10 @@ const styles = StyleSheet.create({
   text:{
     textAlign:'center',
     color:'#727272'
+  },
+  av:{
+    alignItems: 'center',
+    marginBottom:20
   }
 })
 

@@ -12,7 +12,7 @@ render() {
       <TouchableOpacity onPress={() => displayDetailForFilm(service)}>
           <Card style={styles.main_container}>
 <Title>Service {service.nom}</Title>
-      <Paragraph>Budget: <Text style={styles.green}>{service.budget}</Text></Paragraph>
+      <Paragraph>Budget: <Text style={styles.green}>{service.budget} EUR</Text></Paragraph>
   </Card>
   </TouchableOpacity>
     )

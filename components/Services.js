@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { StyleSheet, View, TextInput, FlatList, Text } from 'react-native'
+import { Avatar, Icon, Card, Title, Paragraph } from 'react-native-paper';
 import services from '../helpers/servicesData'
 import ServiceItem from './ServiceItem'
 import AppBar from './AppBar'
@@ -17,6 +18,10 @@ class Services extends React.Component {
     const title = 'Mes services'
     return (
       <View style={styles.main_container}>
+        <View style={styles.av} >
+        <Avatar.Icon theme={theme} size={100} icon="bank" />
+          </View>
+        <Text style={styles.title}>Liste des services</Text>
         <FlatList
           data={services}
           keyExtractor={(item) => item.id.toString()}
@@ -27,6 +32,12 @@ class Services extends React.Component {
   }
 }
 
+const theme = {
+  colors: {
+    primary: '#2196f3',
+  },
+};
+
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
@@ -36,7 +47,17 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 30,
    
-  }
+  },
+  title:{
+    fontWeight: 'bold',
+    fontSize:22,
+    marginBottom:5,
+    textAlign: 'center'
+  },
+  av:{
+    alignItems: 'center',
+    marginBottom:20
+  },
 })
 
 export default Services

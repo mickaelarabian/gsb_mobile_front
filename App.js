@@ -12,7 +12,7 @@ import Navigation from './navigation/navigation'
 export default class App extends React.Component {
   render() {
     return (
-      <Login/>
+      <Navigation/>
     )
   }
 }

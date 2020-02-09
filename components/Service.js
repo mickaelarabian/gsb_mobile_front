@@ -63,85 +63,154 @@ class Service extends React.Component {
                 <Title style={styles.titlea}>Vos activités</Title>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon size={30} icon="store" />
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
                     <Text style={styles.description}>Paiement éffectué</Text>
                   </View>
                   <View style={styles.acti3}>
-                    <Text>
+                  <Text style={styles.prix}>
                     - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon size={30} icon="store" />
+                  <Avatar.Icon theme={theme} size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
                     <Text style={styles.description}>Paiement éffectué</Text>
                   </View>
                   <View style={styles.acti3}>
-                    <Text>
+                  <Text style={styles.prix}>
                     - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon size={30} icon="store" />
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
                     <Text style={styles.description}>Paiement éffectué</Text>
                   </View>
                   <View style={styles.acti3}>
-                    <Text>
+                  <Text style={styles.prix}>
                     - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon size={30} icon="store" />
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
                     <Text style={styles.description}>Paiement éffectué</Text>
                   </View>
                   <View style={styles.acti3}>
-                    <Text>
+                  <Text style={styles.prix}>
                     - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon size={30} icon="store" />
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
                     <Text style={styles.description}>Paiement éffectué</Text>
                   </View>
                   <View style={styles.acti3}>
-                    <Text>
+                  <Text style={styles.prix}>
                     - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon size={30} icon="store" />
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
                     <Text style={styles.description}>Paiement éffectué</Text>
                   </View>
                   <View style={styles.acti3}>
-                    <Text>
+                    <Text style={styles.prix}>
                     - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                    - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                    - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                    - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                    01-01-1999
                     </Text>
                   </View>
                 </View>
@@ -166,6 +235,12 @@ class Service extends React.Component {
     )
   }
 }
+
+const theme = {
+  colors: {
+    primary: '#ddd',
+  },
+};
 
 const styles = StyleSheet.create({
   main_container: {
@@ -228,13 +303,21 @@ const styles = StyleSheet.create({
     flex: 13
   },
   acti3:{
-    flex:4
+    flex:4,
   },
   list:{
     flex:1
   },
   addButton:{
 
+  },
+  date:{
+    fontSize: 10,
+    textAlign: 'right',
+    color:'#727272'
+  },
+  prix:{
+    textAlign: 'right'
   }
 })
 

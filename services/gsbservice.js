@@ -23,8 +23,8 @@ export function getServicesFromUser (user_id) {
       .catch((error) => console.error(error))
   }
 
-  export function saveDepense (service_id) {
-    const url = 'http://10.10.1.67:8000/api/depenses/create'
+  export function saveDepense (service_id, libelle, description, prix) {
+    const url = 'http://10.10.1.67:8000/api/depenses/create?service_id=' + service_id + '&libelle=' + libelle + '&description=' + description + '&prix=' + prix
     return fetch(url)
       .then((response) => response.json())
       .catch((error) => console.error(error))
