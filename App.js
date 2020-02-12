@@ -15,7 +15,7 @@ import Test3 from './components/Test3'
 export default class App extends React.Component {
   render() {
     return (
-      <Test3/>
+      <Navigation/>
     )
   }
 }

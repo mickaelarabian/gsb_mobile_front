@@ -3,6 +3,8 @@
 import React from 'react'
 import { StyleSheet, View, Image, TextInput, Button, Text, Slider } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
+import SvgUri from 'react-native-svg-uri';
+
 
 class Test2 extends React.Component {
     render() {
@@ -38,7 +40,7 @@ class Test2 extends React.Component {
                                 </View>
                                 <View style={{ flex: 8 }}>
                                    <View style={{flex:1}}>
-
+             
                                    </View>
                                    <View style={{flex:5, flexDirection:'row'}}>
                                         <View style={{width:'23%', height:'35%', backgroundColor:'#F6F5F0', margin:8, borderRadius:10, padding: 10,}}>

@@ -1,7 +1,7 @@
 // Components/Services.js
 
 import React from 'react'
-import { StyleSheet, View, TextInput, FlatList, Button, Text, ActivityIndicator, ScrollView } from 'react-native'
+import { StyleSheet, View, TextInput, FlatList, Button, Text, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native'
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 import services from '../helpers/servicesData'
 import ServiceItem from './ServiceItem'
@@ -40,9 +40,9 @@ class Service extends React.Component {
     }
   }
 
-  _displaySaisi(service){
+  _displaySaisi(service) {
     console.log("go")
-    this.props.navigation.navigate("Saisi", {id:service.id})
+    this.props.navigation.navigate("Saisi", { id: service.id })
   }
 
   _displayService() {
@@ -50,105 +50,21 @@ class Service extends React.Component {
       console.log(this.state.service)
       const service = this.state.service.result
       return (
-        <View style={{flex:1}}>
-        <ScrollView style={styles.scrollview_container}>
-          <Card style={styles.card}>
-            <Title>{service.title} Budget Service</Title>
-              
-                  <Text style={styles.budget}>{service.budget} EUR</Text>
-                  <Text style={styles.dispo}>Disponible</Text>
-          </Card>
-          
+        <View style={{ flex: 1 }}>
+          <View style={{flex:6}}>
+            <ScrollView style={styles.scrollview_container}>
+              <Card style={styles.card}>
+                <Title>{service.title} Budget Service</Title>
+
+                <Text style={styles.budget}>{service.budget} EUR</Text>
+                <Text style={styles.dispo}>Disponible</Text>
+              </Card>
+
               <View>
                 <Title style={styles.titlea}>Vos activités</Title>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
-                  </View>
-                  <View style={styles.acti2}>
-                    <Text style={styles.actititre}>Achat Materiel</Text>
-                    <Text style={styles.description}>Paiement éffectué</Text>
-                  </View>
-                  <View style={styles.acti3}>
-                  <Text style={styles.prix}>
-                    - 8,99 EUR
-                    </Text>
-                    <Text style={styles.date}>
-                    01-01-1999
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.activite}>
-                  <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme} size={30} icon="store" />
-                  </View>
-                  <View style={styles.acti2}>
-                    <Text style={styles.actititre}>Achat Materiel</Text>
-                    <Text style={styles.description}>Paiement éffectué</Text>
-                  </View>
-                  <View style={styles.acti3}>
-                  <Text style={styles.prix}>
-                    - 8,99 EUR
-                    </Text>
-                    <Text style={styles.date}>
-                    01-01-1999
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.activite}>
-                  <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
-                  </View>
-                  <View style={styles.acti2}>
-                    <Text style={styles.actititre}>Achat Materiel</Text>
-                    <Text style={styles.description}>Paiement éffectué</Text>
-                  </View>
-                  <View style={styles.acti3}>
-                  <Text style={styles.prix}>
-                    - 8,99 EUR
-                    </Text>
-                    <Text style={styles.date}>
-                    01-01-1999
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.activite}>
-                  <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
-                  </View>
-                  <View style={styles.acti2}>
-                    <Text style={styles.actititre}>Achat Materiel</Text>
-                    <Text style={styles.description}>Paiement éffectué</Text>
-                  </View>
-                  <View style={styles.acti3}>
-                  <Text style={styles.prix}>
-                    - 8,99 EUR
-                    </Text>
-                    <Text style={styles.date}>
-                    01-01-1999
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.activite}>
-                  <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
-                  </View>
-                  <View style={styles.acti2}>
-                    <Text style={styles.actititre}>Achat Materiel</Text>
-                    <Text style={styles.description}>Paiement éffectué</Text>
-                  </View>
-                  <View style={styles.acti3}>
-                  <Text style={styles.prix}>
-                    - 8,99 EUR
-                    </Text>
-                    <Text style={styles.date}>
-                    01-01-1999
-                    </Text>
-                  </View>
-                </View>
-                <View style={styles.activite}>
-                  <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
@@ -156,16 +72,16 @@ class Service extends React.Component {
                   </View>
                   <View style={styles.acti3}>
                     <Text style={styles.prix}>
-                    - 8,99 EUR
+                      - 8,99 EUR
                     </Text>
                     <Text style={styles.date}>
-                    01-01-1999
+                      01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
@@ -173,16 +89,16 @@ class Service extends React.Component {
                   </View>
                   <View style={styles.acti3}>
                     <Text style={styles.prix}>
-                    - 8,99 EUR
+                      - 8,99 EUR
                     </Text>
                     <Text style={styles.date}>
-                    01-01-1999
+                      01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
@@ -190,16 +106,16 @@ class Service extends React.Component {
                   </View>
                   <View style={styles.acti3}>
                     <Text style={styles.prix}>
-                    - 8,99 EUR
+                      - 8,99 EUR
                     </Text>
                     <Text style={styles.date}>
-                    01-01-1999
+                      01-01-1999
                     </Text>
                   </View>
                 </View>
                 <View style={styles.activite}>
                   <View style={styles.acti1}>
-                  <Avatar.Icon theme={theme}  size={30} icon="store" />
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
                   </View>
                   <View style={styles.acti2}>
                     <Text style={styles.actititre}>Achat Materiel</Text>
@@ -207,18 +123,106 @@ class Service extends React.Component {
                   </View>
                   <View style={styles.acti3}>
                     <Text style={styles.prix}>
-                    - 8,99 EUR
+                      - 8,99 EUR
                     </Text>
                     <Text style={styles.date}>
-                    01-01-1999
+                      01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                      - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                      01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                      - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                      01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                      - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                      01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                      - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                      01-01-1999
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.activite}>
+                  <View style={styles.acti1}>
+                    <Avatar.Icon theme={theme} size={30} icon="store" />
+                  </View>
+                  <View style={styles.acti2}>
+                    <Text style={styles.actititre}>Achat Materiel</Text>
+                    <Text style={styles.description}>Paiement éffectué</Text>
+                  </View>
+                  <View style={styles.acti3}>
+                    <Text style={styles.prix}>
+                      - 8,99 EUR
+                    </Text>
+                    <Text style={styles.date}>
+                      01-01-1999
                     </Text>
                   </View>
                 </View>
               </View>
-        </ScrollView>
-        <View>
-              <Button style={styles.addButton} title="+" onPress={() => this._displaySaisi(service)}/>
-        </View>
+            </ScrollView>
+          </View>
+          <View style={{ flex: 1, alignItems:'center' }}>
+            <TouchableOpacity onPress={() => this._displaySaisi(service)}>
+              <Avatar.Icon theme={theme2} size={50} icon="plus" />
+            </TouchableOpacity>
+          </View>
         </View>
       )
     }
@@ -242,6 +246,12 @@ const theme = {
   },
 };
 
+const theme2 = {
+  colors: {
+    primary: '#2196f3',
+  },
+};
+
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
@@ -259,64 +269,64 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20
   },
-  card:{
+  card: {
     padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
     marginBottom: 30
   },
-  title:{
+  title: {
     fontSize: 20
   },
-  budget:{
+  budget: {
     fontSize: 30
   },
-  dispo:{
+  dispo: {
     paddingLeft: 10,
     color: '#727272'
   },
-  activite:{
+  activite: {
     flexDirection: 'row',
-    flex:1,
-    marginBottom:15
+    flex: 1,
+    marginBottom: 15
   },
-  titlea:{
+  titlea: {
     marginBottom: 12
   },
-  actititre:{
+  actititre: {
     fontSize: 15,
     paddingLeft: 5
   },
-  description:{
+  description: {
     color: '#727272',
     fontSize: 12,
     paddingLeft: 5
   },
-  acti1:{
-    flex:2,
+  acti1: {
+    flex: 2,
     paddingTop: 2,
-    paddingLeft:5,
-    paddingRight:5,
+    paddingLeft: 5,
+    paddingRight: 5,
     borderRadius: 25
   },
-  acti2:{
+  acti2: {
     flex: 13
   },
-  acti3:{
-    flex:4,
+  acti3: {
+    flex: 4,
   },
-  list:{
-    flex:1
+  list: {
+    flex: 1
   },
-  addButton:{
+  addButton: {
 
   },
-  date:{
+  date: {
     fontSize: 10,
     textAlign: 'right',
-    color:'#727272'
+    color: '#727272'
   },
-  prix:{
+  prix: {
     textAlign: 'right'
   }
 })
