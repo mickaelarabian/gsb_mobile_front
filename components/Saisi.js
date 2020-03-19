@@ -3,7 +3,7 @@
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, Text } from 'react-native'
 import { Avatar, Icon, Card, Title, Paragraph } from 'react-native-paper';
-import { saveDepense } from '../services/gsbservice'
+import GsbService from '../services/GsbService'
 
 class Saisi extends React.Component {
 
@@ -33,7 +33,7 @@ class Saisi extends React.Component {
 		console.log("validation")
 		if (this.libelle.length > 0 && this.description.length > 0 && this.prix.length > 0) {
 			console.log("ok on insert")
-			saveDepense(this.props.navigation.state.params.id, this.libelle, this.description, this.prix)
+			GsbService.saveDepense(this.props.navigation.state.params.id, this.libelle, this.description, this.prix)
 			this.setState({ error: "La dépense a bien été enregistrée !" })
 		} else {
 			console.log("on insert pas")
