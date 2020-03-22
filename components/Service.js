@@ -1,8 +1,8 @@
 // Components/Services.js
 
 import React from 'react'
-import { StyleSheet, View, TextInput, FlatList, Button, Text, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native'
-import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
+import { StyleSheet, View, FlatList, Text, ActivityIndicator, TouchableOpacity } from 'react-native'
+import { Avatar, Title } from 'react-native-paper';
 import ActiviteItem from './ActiviteItem'
 import GsbService from '../services/GsbService'
 
@@ -12,19 +12,19 @@ class Service extends React.Component {
 		super(props)
 		this.state = {
 			service: undefined,
-			isLoading: true
+			isLoading: true,
+			current: undefined
 		}
 	}
 
 	componentDidMount() {
 		console.log("Component Service monté")
-		GsbService.getService(this.props.navigation.state.params.id).then(data => {
+		GsbService.getService(this.props.route.params.id).then(data => {
 			this.setState({
 				service: data,
 				isLoading: false
 			})
 		})
-		console.log("ok");
 	}
 
 	_displayLoading() {
@@ -37,9 +37,20 @@ class Service extends React.Component {
 		}
 	}
 
-	_displaySaisi(service) {
-		console.log("go")
-		this.props.navigation.navigate("Saisi", { id: service.id })
+	selectItem = (id) => {
+		if (this.state.current == id) {
+			this.setState({
+				current: undefined
+			})
+		} else {
+			this.setState({
+				current: id
+			})
+		}
+	}
+	//f2
+	currentItem = (id) => {
+		return (this.state.current == id ? '#ddd' : '#f7f7f7')
 	}
 
 	_displayService() {
@@ -47,26 +58,39 @@ class Service extends React.Component {
 			console.log(this.state.service)
 			const service = this.state.service.result
 			return (
-				<View style={{ flex: 1, padding:20 }}>
-					<Card style={styles.card}>
-						<Title>{service.title} Budget Service</Title>
-						<Text style={styles.budget}>{service.budget} EUR</Text>
-						<Text style={styles.dispo}>Disponible</Text>
-					</Card>
-					<View style={{flex:7}}>
-						<Title style={styles.titlea}>Vos activités</Title>
-						<FlatList
-							data={service.depenses}
-							keyExtractor={(item) => item.id.toString()}
-							renderItem={({ item }) => <ActiviteItem activite={item} />}
-						/>
-					</View>
-					<View style={{ flex: 1, alignItems: 'center', justifyContent:'center' }}>
-						<TouchableOpacity onPress={() => this._displaySaisi(service)}>
-							<View style={{backgroundColor:'#2196f3', width:250, height:35,  alignItems: 'center', justifyContent:'center', borderRadius:8}}>
-								<Text style={{color:'#fff'}}>Ajouter une dépense</Text>
+				<View style={{ flex: 1, padding: 20 }}>
+					<View style={styles.card}>
+						<Title>Service {service.nom}</Title>
+						<Text style={styles.title2}>Budget</Text>
+						<View style={{ flexDirection: 'row' }}>
+							<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+								<TouchableOpacity activeOpacity={0.8} onPress={() => this.props.goRoutes('demande', service.id)}>
+									<Avatar.Icon theme={theme} size={30} icon="cash" />
+								</TouchableOpacity>
 							</View>
-						</TouchableOpacity>
+							<View style={{ flex: 4 }}>
+								<Text style={styles.budget}>{service.budget} EUR</Text>
+								<Text style={styles.dispo}>Disponible</Text>
+							</View>
+						</View>
+					</View>
+					<View style={{ flex: 1 }}>
+
+						<View style={{ flex: 123 }}>
+							<Title style={styles.titlea}>Vos activités</Title>
+							<FlatList
+								data={service.depenses}
+								keyExtractor={(item) => item.id.toString()}
+								renderItem={({ item }) => <ActiviteItem currentItem={this.currentItem} selectItem={this.selectItem} activite={item} />}
+							/>
+						</View>
+						<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+							<TouchableOpacity style={{ top: -25 }} activeOpacity={0.8} onPress={() => this.props.goRoutes('saisi', service.id)}>
+								<View style={{ backgroundColor: 'red', borderRadius: 50, elevation: 4 }}>
+									<Avatar.Icon theme={theme} size={50} icon="plus" />
+								</View>
+							</TouchableOpacity>
+						</View>
 					</View>
 				</View>
 			)
@@ -74,8 +98,6 @@ class Service extends React.Component {
 	}
 
 	render() {
-		const title = 'Service comptabilité'
-		const subtitle = 'Siège Administratif'
 		return (
 			<View style={styles.main_container}>
 				{this._displayLoading()}
@@ -85,7 +107,7 @@ class Service extends React.Component {
 	}
 }
 
-const theme2 = {
+const theme = {
 	colors: {
 		primary: '#2196f3',
 	},
@@ -112,17 +134,27 @@ const styles = StyleSheet.create({
 		padding: 10,
 		paddingLeft: 15,
 		paddingRight: 15,
-		marginBottom: 30
+		marginBottom: 30,
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		elevation: 4
 	},
 	title: {
 		fontSize: 20
 	},
+	title2: {
+		paddingLeft: 5,
+		fontSize: 18,
+	},
 	budget: {
-		fontSize: 30
+		fontSize: 28,
+		textAlign: 'right'
 	},
 	dispo: {
-		paddingLeft: 10,
-		color: '#727272'
+		paddingLeft: 5,
+		color: '#727272',
+		fontStyle: 'italic',
+		textAlign: 'right'
 	},
 	titlea: {
 		marginBottom: 12

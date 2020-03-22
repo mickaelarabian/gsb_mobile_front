@@ -2,29 +2,33 @@
 
 import React from 'react'
 import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Avatar, Button, Title } from 'react-native-paper';
 import Moment from 'moment';
 
 class ActiviteItem extends React.Component {
 
 	render() {
-		const { activite } = this.props
+		const { activite, selectItem, currentItem } = this.props
 		return (
-			<View style={styles.activite}>
-				<View style={styles.acti1}>
-					<Avatar.Icon theme={theme} size={30} icon="store" />
-				</View>
-				<View style={styles.acti2}>
-					<Text style={styles.actititre}>{activite.libelle}</Text>
-					<Text style={styles.description}>{activite.description}</Text>
-				</View>
-				<View style={styles.acti3}>
-					<Text style={styles.prix}>
-						- {activite.prix} EUR
+			<TouchableOpacity activeOpacity={0.8} onPress={() => selectItem(activite.id)}>
+				<View style={[styles.activite, {backgroundColor:currentItem(activite.id)}]}>
+					<View style={styles.acti1}>
+						<View style={{ backgroundColor: '#f2f2f2', elevation: 4, borderRadius: 50 }}>
+							<Avatar.Icon theme={theme} size={30} icon="store" />
+						</View>
+					</View>
+					<View style={styles.acti2}>
+						<Text style={styles.actititre}>{activite.libelle}</Text>
+						<Text style={styles.description}>{activite.description}</Text>
+					</View>
+					<View style={styles.acti3}>
+						<Text style={styles.prix}>
+							- {activite.prix} EUR
                     </Text>
-					<Text style={styles.date}> {Moment(activite.date).format('MMMM Do YYYY')} </Text>
+						<Text style={styles.date}> {Moment(activite.date).format('MMMM Do YYYY')} </Text>
+					</View>
 				</View>
-			</View>
+			</TouchableOpacity>
 		)
 	}
 }
@@ -48,7 +52,10 @@ const styles = StyleSheet.create({
 	activite: {
 		flexDirection: 'row',
 		flex: 1,
-		marginBottom: 15
+		marginBottom: 10,
+		padding: 5,
+		borderRadius:50,
+		paddingRight:15
 	},
 	titlea: {
 		marginBottom: 12

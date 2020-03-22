@@ -5,30 +5,24 @@ import { StyleSheet, View, TextInput, Button, Text } from 'react-native'
 import { Avatar } from 'react-native-paper';
 import GsbService from '../services/GsbService'
 
-class Saisi extends React.Component {
+class Demande extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.libelle = ""
-		this.description = ""
-		this.prix = ""
+		this.budget = ""
 		this.state = {
 			error: ""
 		}
 	}
 
-	_libelleInputChanged(text) { this.libelle = text }
+	_budgetInputChanged(text) { this.budget = text }
 
-	_descriptionInputChanged(text) { this.description = text }
-
-	_prixInputChanged(text) { this.prix = text }
 
 	_validerSaisi() {
-		if (this.libelle.length > 0 && this.description.length > 0 && this.prix.length > 0) {
+		if (this.budget.length > 0) {
 			console.log("ok on insert")
-			GsbService.saveDepense(this.props.route.params.id, this.libelle, this.description, this.prix)
-			this.setState({ error: "La dépense a bien été enregistrée !" })
-			this.props.navigation.goBack()
+			GsbService.saveDemande(this.props.route.params.id, this.budget)
+			this.setState({ error: "La demande a bien été prise en compte !" })
 		} else {
 			console.log("on insert pas")
 			this.setState({ error: "Tous les champs doivent être remplis !" })
@@ -41,13 +35,11 @@ class Saisi extends React.Component {
 			<View style={styles.main_container}>
 				<View>
 					<View style={styles.av} >
-						<Avatar.Icon theme={theme} size={100} icon="widgets" />
+						<Avatar.Icon theme={theme} size={100} icon="cash" />
 					</View>
-					<Text style={styles.title}>Saisi de dépense</Text>
-					<Text style={styles.text}>Veuillez remplir les champs pour saisir votre dépense.</Text>
-					<TextInput style={styles.input} onChangeText={(text) => this._libelleInputChanged(text)} placeholder="Libelle" />
-					<TextInput style={styles.input} onChangeText={(text) => this._descriptionInputChanged(text)} placeholder="Description" />
-					<TextInput style={styles.input} onChangeText={(text) => this._prixInputChanged(text)} placeholder="Prix" />
+					<Text style={styles.title}>Demande de budget</Text>
+					<Text style={styles.text}>Veuillez remplir les champs pour demander du budget.</Text>
+					<TextInput style={styles.input} onChangeText={(text) => this._budgetInputChanged(text)} placeholder="Budget" />
 					<Button title="Enregistrer" onPress={() => this._validerSaisi()} />
 					<Text>{this.state.error}</Text>
 				</View>
@@ -92,4 +84,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default Saisi
+export default Demande

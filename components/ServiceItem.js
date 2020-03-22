@@ -1,22 +1,22 @@
 // Components/ServiceItem.js
 
 import React from 'react'
-import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { Avatar } from 'react-native-paper';
 
 class ServiceItem extends React.Component {
 
 	render() {
-		const { service, displayDetailForFilm } = this.props
+		const { service } = this.props
 		return (
-			<TouchableOpacity activeOpacity={0.8} onPress={() => displayDetailForFilm(service)}>
-				<View style={{ marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10, backgroundColor: '#fff', elevation: 1, borderRadius: 50, paddingLeft: 15, flexDirection: 'row' }}>
+			<TouchableOpacity activeOpacity={0.8} onPress={() => this.props.goRoutes(service.id)}>
+				<View style={{ marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10, backgroundColor: '#f7f7f7', elevation: 1, borderRadius: 50, paddingLeft: 15, flexDirection: 'row', paddingTop:3 }}>
 					<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 						<Avatar.Icon theme={theme} size={30} icon="bank" />
 					</View>
 					<View style={{paddingLeft:10, paddingBottom:8}}>
-						<Title>Service {service.nom}</Title>
-						<Text>Budget: <Text style={styles.green}>{service.budget} EUR</Text></Text>
+						<Text style={{fontWeight:'bold', fontSize:17}}>Service {service.nom}</Text>
+						<Text>Budget: <Text style={styles.blue}>{service.budget} EUR</Text></Text>
 					</View>
 				</View>
 			</TouchableOpacity>
@@ -25,7 +25,7 @@ class ServiceItem extends React.Component {
 }
 const theme = {
 	colors: {
-		primary: '#2196f3',
+		primary: '#2196f3'
 	},
 };
 
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
 		paddingLeft: 10,
 		paddingBottom: 5
 	},
-	green: {
-		color: 'green'
+	blue: {
+		color: '#1e88e5'
 	},
 })
 

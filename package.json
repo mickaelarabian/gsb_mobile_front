@@ -10,6 +10,9 @@
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.6",
     "@react-native-community/slider": "^2.0.8",
+    "@react-navigation/bottom-tabs": "^5.2.2",
+    "@react-navigation/native": "^5.1.1",
+    "@react-navigation/stack": "^5.2.3",
     "expo": "~36.0.0",
     "expo-cli": "^3.11.7",
     "expo-linear-gradient": "^8.0.0",
@@ -23,12 +26,10 @@
     "react-native-paper": "^3.4.0",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.6.2",
+    "react-native-screens": "^2.4.0",
     "react-native-svg": "^11.0.1",
     "react-native-svg-uri": "^1.2.3",
-    "react-native-web": "~0.11.7",
-    "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^2.0.15",
-    "react-navigation-tabs": "^2.7.0"
+    "react-native-web": "~0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
